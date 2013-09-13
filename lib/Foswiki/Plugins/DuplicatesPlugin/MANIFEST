@@ -1,0 +1,7 @@
+!noci
+data/System/DuplicatesPlugin.txt 0644 Documentation page
+data/System/DuplicatesFinder.txt 0644
+data/System/DuplicatesFinderTemplate.txt 0644
+data/System/DuplicatesFinderViewTemplate.txt 0644
+lib/Foswiki/Plugins/DuplicatesPlugin.pm 0444 Perl module
+lib/Foswiki/Plugins/DuplicatesPlugin/Config.spec 0444 Configuration
