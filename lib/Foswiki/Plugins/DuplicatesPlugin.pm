@@ -12,7 +12,7 @@ use Digest::SHA1;
 #use version; our $VERSION = version->declare("v1.0.0_001");
 our $VERSION = "0.0.1"; # XXX
 
-our $RELEASE = '0.0.1';
+our $RELEASE = '0.0.2';
 
 # One line description of the module
 our $SHORTDESCRIPTION = 'Check if a file was attached twice.';
