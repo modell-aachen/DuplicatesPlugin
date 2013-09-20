@@ -5,8 +5,11 @@ else="$percentTMPL:P{\"SearchDuplicate\" sha1=\"%URLPARAM{"sha1" default="0"}%\"
 }%
 %TMPL:END%
 
+%{"Define additions search options here:"}%
+%TMPL:DEF{"DuplicatesSearchOptions"}%%TMPL:PREV% -topic: *%WORKFLOWSUFFIX%%TMPL:END%
+
 %TMPL:DEF{"SearchDuplicate"}%
-%SOLRSEARCH{"attachment_sha1_s: %sha1%" header="%MAKETEXT{"Found this attachment [_1] times:" args="$count"}%$n" format="   * [[$web.$topic][$web.$topic: $name]]$n"}%
+%SOLRSEARCH{"attachment_sha1_s: %sha1%%TMPL:P{"DuplicatesSearchOptions"}%" header="%MAKETEXT{"Found this attachment [_1] times:" args="$count"}%$n" format="   * [[$web.$topic][$web.$topic: $name]]$n"}%
 %TMPL:END%
 
 %TMPL:DEF{"DuplicatesFacets"}%---++ %MAKETEXT{"Duplicate attachments"}%
@@ -20,7 +23,7 @@ The search was limited to %limit% duplicates!
 }%%TMPL:END%
 
 %TMPL:DEF{"__DuplicatesFacets"}%
-%SOLRSEARCH{"attachment_sha1_s:*" facets="sha1=attachment_sha1_s" id="sha1Solr" rows="0" facetmincount="2" facetoffset="%URLPARAM{"offset" default="0"}%" facetlimit="attachment_sha1_s=%limit%"}%
+%SOLRSEARCH{"attachment_sha1_s:*%TMPL:P{"DuplicatesSearchOptions"}%" facets="sha1=attachment_sha1_s" id="sha1Solr" rows="0" facetmincount="2" facetoffset="%URLPARAM{"offset" default="0"}%" facetlimit="attachment_sha1_s=%limit%"}%
 %SOLRFORMAT{"sha1Solr" format_attachment_sha1_s="%TMPL:P{"DuplicatesFacetPreview"}%"
 footer="%TMPL:P{Pager limit="%limit%" maxlimit="%maxlimit%"}%"
 header_attachment_sha1_s="%MAKETEXT{"Duplicates found: [_1]" args="$rows"}%$n"
