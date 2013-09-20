@@ -123,15 +123,10 @@ sub beforeUploadHandler {
 
     my $sha1 = Digest::SHA1->new;
 
-    use Time::HiRes qw (time );
-    my $t = time;
     $sha1->addfile($file);
-    $t = time - $t;
 
     my $hash = $sha1->hexdigest;
     $attrHashRef->{sha1} = $hash;
-
-    Foswiki::Func::writeWarning("sha1: $hash time taken: ".$t);
 }
 
 sub indexAttachmentHandler {
