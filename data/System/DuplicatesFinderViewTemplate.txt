@@ -1,0 +1,11 @@
+%META:TOPICPARENT{name="DuplicatesFinderTemplate"}%
+%TMPL:INCLUDE{"view"}%
+%TMPL:INCLUDE{"DuplicatesFinder"}%
+
+%TMPL:DEF{"content}%%IF{"$'URLPARAM{preview}'" then="$percentBUTTON{\"Hide files\" href=\"%SCRIPTURL{view}%/%WEB%/%TOPIC%?offset=%URLPARAM{"offset" default="0"}%\"}$percent" else="$percentBUTTON{\"%MAKETEXT{"Show all files"}%\" href=\"%SCRIPTURL{view}%/%WEB%/%TOPIC%?preview=1&offset=%URLPARAM{"offset" default="0"}%\"}$percent"}%
+
+%TMPL:P{Duplicates}%
+
+%TMPL:P{context="isadmin" then="Hashify"}%
+%TMPL:END%
+
